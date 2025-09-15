@@ -18,8 +18,8 @@ let tSize = 50; // for text font size
 
 function setup() {
   createCanvas(400, 400);
-  rectMode(CENTER);
-  x = width / 2;
+//   rectMode(CENTER);
+//   x = width / 2;
 }
 
 function draw() {
