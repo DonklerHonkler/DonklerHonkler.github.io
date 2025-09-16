@@ -30,16 +30,16 @@ function drawtorso() {
 
 function draweyes(){
  noStroke
- fill(0,0,0;
-  circle(width-)
- )
+ fill(0,0,0);
+  
+ 
 
 }
 
 
 
 
-}
+
 // function checkMulti(){
 //   strokeWeight(10);
 //   stroke(255,105,180);
