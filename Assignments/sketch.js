@@ -3,7 +3,7 @@
 // Sept 16, 2025
 //
 
-
+let manx =  0
 
 function setup() {
   createCanvas(920, 920);
@@ -18,6 +18,7 @@ function draw() {
   drawmountain2();
   mouseReport();
   drawdock();
+  drawprotag();
 }
 function mouseReport() {
   fill(0)
@@ -65,4 +66,12 @@ function drawdock(){
   }
   
 
+}
+function drawprotag(){
+  
+  line(manx+5,487,manx+20,457);
+  line(manx+20,457,manx+35,487);
+  line(manx+20,457, manx+20,420);
+  fill(246, 231, 141);
+  circle(manx+20,420,30);
 }
