@@ -1,0 +1,72 @@
+// drawing with single loops 
+// aedan
+// Sept 23, 2025
+//
+
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+}
+
+
+function draw() {
+  gradientBackground();
+  circleLine(height * 0.35, 30);
+  circleLine(height / 2, 50);
+  circleLine(height * 0.65, 80);
+}
+
+function gradientBackground() {
+  //create a gradient to use as a background
+  let h = 1;  //height of each rectangle
+
+  // use a loop(doesnt have to be a while loop) to
+  // draw a vertical stack of rectangles
+  let y = 0;
+  while (y <= height) {
+    noStroke();
+    let mappedY = map(y,0,height,0,255);
+    let flippedY = 255 - mappedY;
+    let mappedMouseX= map (mouseX, 0, width, 0,255);
+    let mappedMouseY= map( mouseY, 0, height, 0 , 255);
+    fill(mappedMouseX, flippedY, mappedMouseY);
+    rect(0, y, width, h);
+    y += h;
+
+  }
+
+}
+function cDistance(x1, y1, x2, y2) {
+  //calculate the straight line distance
+  // berween (x1,y1,) and (x2,y2)
+  let a = abs(x1 - x2);
+  let b = abs(y1 - y2);
+  let c = sqrt(pow(a, 2) + pow(b, 2));
+  return c.toFixed(1); // keep only 1 decimal placec
+}
+function circleLine(y, size) {
+  // use this function to draw a line of circles (loop)
+  // y -> number    the height at which to draw the line
+  //size -> number    diamater of the circles
+  let xStart = width * 0.1;  // 10% position from the left
+  let xEnd = width * 0.9;    // 90 % horizontal position from the left
+  for (let x = xStart; x <= xEnd; x += size) {
+
+    let d = cDistance(x, y, mouseX, mouseY);
+    if (d <= size / 2) {
+      fill(200, 200, 0);
+
+    }
+    else {
+      fill(255);
+
+    }
+    circle(x, y, size);
+
+    fill(0)
+    textAlign(CENTER, CENTER);
+    text(d, x, y);
+  }
+
+}
+

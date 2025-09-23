@@ -74,4 +74,6 @@ function drawprotag(){
   line(manx+20,457, manx+20,420);
   fill(246, 231, 141);
   circle(manx+20,420,30);
+  
 }
+//////  TAKE DEMO 5 GRADIENT SKY 
