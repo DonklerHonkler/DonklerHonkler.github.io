@@ -11,14 +11,35 @@ function setup() {
 }
 
 function draw() { 
- 
   background(171, 212, 209);
+  gradientBackground();
   drawmoon();
   drawmountain();
   drawmountain2();
   mouseReport();
   drawdock();
   drawprotag();
+  
+}
+function gradientBackground() {
+  //create a gradient to use as a background
+  let h = 1;  //height of each rectangle
+
+  // use a loop(doesnt have to be a while loop) to
+  // draw a vertical stack of rectangles
+  let y = 0;
+  while (y <= 487) {
+    noStroke();
+    let mappedY = map(y,0,height,0,255);
+    let flippedY = 255 - mappedY;
+    let mappedMouseX= map (mouseX, 0, width, 0,255);
+    let mappedMouseY= map( mouseY, 0, height, 0 , 255);
+    fill(mappedMouseX, flippedY, mappedMouseY);
+    rect(0, y, width, h);
+    y += h;
+
+  }
+
 }
 function mouseReport() {
   fill(0)
@@ -62,7 +83,7 @@ function drawdock(){
   rect(200,488,5,600);
   stroke(0)
   if (mouseIsPressed){
-    line(186,430, mouseX, mouseY);
+    line(manx+40,440, mouseX, mouseY);
   }
   
 
@@ -72,8 +93,13 @@ function drawprotag(){
   line(manx+5,487,manx+20,457);
   line(manx+20,457,manx+35,487);
   line(manx+20,457, manx+20,420);
+  line(manx+10,450, manx+20,440);
+  line(manx+40,440, manx+20,440);
   fill(246, 231, 141);
   circle(manx+20,420,30);
+  
+
+  
   
 }
 //////  TAKE DEMO 5 GRADIENT SKY 
