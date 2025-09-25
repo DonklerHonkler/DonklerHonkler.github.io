@@ -26,12 +26,15 @@ function setup() {
 function noiseMove(){
   //use random noise to set the xposition of a third circle
   circle(mX,mY,50);
+  
 
 }
 
 function draw() {
   background(220);
   randomCircle();
+  noiseCircle();
+  noiseMove();
 }
 
 function noiseCircle(){

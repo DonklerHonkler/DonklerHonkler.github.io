@@ -6,7 +6,7 @@
 let manx =  0
 
 function setup() {
-  createCanvas(920, 920);
+  createCanvas(920, 920);      // canvas background
 
 }
 
@@ -14,13 +14,23 @@ function draw() {
   background(171, 212, 209);
   gradientBackground();
   drawmoon();
-  drawmountain();
-  drawmountain2();
+  drawmountain();   // first set of mountains(ones in the back)
+  drawmountain2();  // second set
   mouseReport();
   drawdock();
   drawprotag();
-  
+  if(keyIsPressed){                                         // moves protagonist left and right
+    if((keyCode===RIGHT_ARROW || key ==="d") && manx < 170){
+      manx += 5;
+    }
+    if((keyCode===LEFT_ARROW || key ==="a") && manx > 0){ 
+      manx -= 5;
+    }
+  }
 }
+
+
+
 function gradientBackground() {
   //create a gradient to use as a background
   let h = 1;  //height of each rectangle
@@ -41,21 +51,21 @@ function gradientBackground() {
   }
 
 }
-function mouseReport() {
+function mouseReport() {   // for debugging(finding position of mouse)
   fill(0)
   let src = mouseX + "," + mouseY ;
-  text(src, mouseX, mouseY)
+  // text(src, mouseX, mouseY)
 }
 
 function drawmoon() {
   noStroke();
   fill(205, 222, 220);
-  circle(windowWidth - 500, windowHeight - 800, 120);
+  circle(windowWidth - 500, windowHeight - 800, 120);   // places moon at entered coordinate
 
 
 }
 
-function drawmountain() {
+function drawmountain() {    // mountains (back ones)
   fill(178, 188, 201);
   triangle(-50, 460, 110, 160, 321, 420)
   triangle(136,385,308, 225, 490,401)
@@ -67,7 +77,7 @@ function drawmountain() {
 }
 
 
-function drawmountain2(){
+function drawmountain2(){     // mountains front ones
   noStroke();
   fill(184, 195, 208);
   triangle(-50,488,118, 300,350,488);
@@ -77,7 +87,7 @@ function drawmountain2(){
 
 }
 
-function drawdock(){
+function drawdock(){     // dock
   fill(191, 137, 67)
   rect(0,488,200,15);
   rect(200,488,5,600);
@@ -88,7 +98,7 @@ function drawdock(){
   
 
 }
-function drawprotag(){
+function drawprotag(){    // stickman + fishing line
   
   line(manx+5,487,manx+20,457);
   line(manx+20,457,manx+35,487);
